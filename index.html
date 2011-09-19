@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Demo</title>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+    <!-- load Dojo -->
+    <script src="dojo/dojo.js.uncompressed.js"></script>
+    <script type="text/javascript">
+        function init() {
+            dojo.require("webdemo.Canvas");
+            var demo = new webdemo.Canvas(dojo.byId("screen"));
+            webdemo.__resources = {images: {} };
+            demo.loadResources()
+                .then(function() { 
+                    demo.start();
+            });
+            webdemo.__demo = demo;
+        }
+        dojo.ready(init);
+    </script>
+</head>
+<body>
+    <center><canvas style="border: 1px dotted;" id="screen" /></center>
+    <p id="status"></p>
+
+</body>
+</html>
